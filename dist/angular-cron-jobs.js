@@ -1,61 +1,72 @@
 /**
  * UI Component For Creating Cron Job Syntax To Send To Server
- * @version v1.0.1 - 2015-01-28 * @link https://github.com/jacobscarter/angular-cron-jobs
+ * @version v1.0.1 - 2015-03-30 * @link https://github.com/jacobscarter/angular-cron-jobs
  * @author Jacob Carter <jacob@ieksolutions.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 angular.module('templates-angularcronjobs', ['cronselection.html']);
 
 angular.module("cronselection.html", []).run(["$templateCache", function($templateCache) {
-    $templateCache.put("cronselection.html",
-        "<div class=\"cron-wrap\">\n" +
-        "<span>Every: </span>\n" +
-        " <select class=\"cron-select\" ng-change=\"baseChange()\" ng-model=\"myFrequency.base\" ng-options=\"item.value as item.text for item in frequency\"></select>\n" +
-        " \n" +
-        " <div ng-show=\"myFrequency.base === 2\" class=\"select-options\">\n" +
-        "   <span>at </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.pastTheHour\" ng-options=\"item.value as item.value for item in pastTheHour\"></select>\n" +
-        "   <span> past the hour</span>\n" +
-        " </div>\n" +
-        "\n" +
-        "\n" +
-        " <div ng-show=\"myFrequency.base === 3\" class=\"select-options\">\n" +
-        "   <span>at </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.hourValue\" ng-options=\"item.value as item.value for item in hourValue\"></select>\n" +
-        "   <span> : </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.minuteValue\" ng-options=\"item.value as item.value for item in minuteValue\"></select>\n" +
-        " </div>\n" +
-        "\n" +
-        " <div ng-show=\"myFrequency.base === 4\" class=\"select-options\">\n" +
-        "   <span>on </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.dayValue\" ng-options=\"item.value as item.text for item in dayValue\"></select>\n" +
-        "   <span>at </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.weekHourValue\" ng-options=\"item.value as item.value for item in hourValue\"></select>\n" +
-        "   <span> : </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.weekMinuteValue\" ng-options=\"item.value as item.value for item in minuteValue\"></select>\n" +
-        " </div>\n" +
-        "\n" +
-        " <div ng-show=\"myFrequency.base === 5\" class=\"select-options\">\n" +
-        "   <span>on the </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.dayOfMonthValue\" ng-options=\"item.value as item.text for item in dayOfMonthValue\"></select>\n" +
-        "   <span>at </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.weekHourValue\" ng-options=\"item.value as item.value for item in hourValue\"></select>\n" +
-        "   <span> : </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.weekMinuteValue\" ng-options=\"item.value as item.value for item in minuteValue\"></select>\n" +
-        " </div>\n" +
-        "\n" +
-        " <div ng-show=\"myFrequency.base === 6\" class=\"select-options\">\n" +
-        "   <span>on the </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.dayOfMonthValue\" ng-options=\"item.value as item.text for item in dayOfMonthValue\"></select>\n" +
-        "   <span>of </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.monthValue\" ng-options=\"item.value as item.text for item in monthValue\"></select>\n" +
-        "   <span>at </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.weekHourValue\" ng-options=\"item.value as item.value for item in hourValue\"></select>\n" +
-        "   <span> : </span>\n" +
-        "   <select class=\"cron-select\" ng-model=\"myFrequency.weekMinuteValue\" ng-options=\"item.value as item.value for item in minuteValue\"></select>\n" +
-        " </div>\n" +
-        "\n" +
-        "</div>");
+  $templateCache.put("cronselection.html",
+    "<div class=\"cron-wrap\">\n" +
+    "	<span>Every: </span>\n" +
+    "	<select class=\"cron-select\" ng-change=\"baseChange()\" ng-model=\"myFrequency.base\" ng-options=\"item.value as item.text for item in frequency\">\n" +
+    "		\n" +
+    "	</select>\n" +
+    "	<div ng-show=\"myFrequency.base === 2\" class=\"select-options\">\n" +
+    "		<span> at\n" +
+    "		</span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.pastTheHour\" ng-options=\"item.value as item.value for item in pastTheHour\">\n" +
+    "		</select>\n" +
+    "		<span> past the hour\n" +
+    "		</span>\n" +
+    "	</div>\n" +
+    "	<div ng-show=\"myFrequency.base === 3\" class=\"select-options\">\n" +
+    "		<span>at </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.hourValue\" ng-options=\"item.value as item.value for item in hourValue\">\n" +
+    "		</select>\n" +
+    "		<span> : </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.minuteValue\" ng-options=\"item.value as item.value for item in minuteValue\">\n" +
+    "		</select>\n" +
+    "	</div>\n" +
+    "	<div ng-show=\"myFrequency.base === 4\" class=\"select-options\">\n" +
+    "		<span>on\n" +
+    "		</span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.dayValue\" ng-options=\"item.value as item.text for item in dayValue\">\n" +
+    "		</select>\n" +
+    "		<span>at </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.weekHourValue\" ng-options=\"item.value as item.value for item in hourValue\">\n" +
+    "		</select>\n" +
+    "		<span> : </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.weekMinuteValue\" ng-options=\"item.value as item.value for item in minuteValue\">\n" +
+    "		</select>\n" +
+    "	</div>\n" +
+    "	<div ng-show=\"myFrequency.base === 5\" class=\"select-options\">\n" +
+    "		<span>on the </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.dayOfMonthValue\" ng-options=\"item.value as item.text for item in dayOfMonthValue\">\n" +
+    "		</select>\n" +
+    "		<span>at </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.weekHourValue\" ng-options=\"item.value as item.value for item in hourValue\">\n" +
+    "		</select>\n" +
+    "		<span> : </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.weekMinuteValue\" ng-options=\"item.value as item.value for item in minuteValue\">\n" +
+    "		</select>\n" +
+    "	</div>\n" +
+    "	<div ng-show=\"myFrequency.base === 6\" class=\"select-options\">\n" +
+    "		<span>on the </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.dayOfMonthValue\" ng-options=\"item.value as item.text for item in dayOfMonthValue\">\n" +
+    "		</select>\n" +
+    "		<span>of </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.monthValue\" ng-options=\"item.value as item.text for item in monthValue\">\n" +
+    "		</select>\n" +
+    "		<span>at </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.weekHourValue\" ng-options=\"item.value as item.value for item in hourValue\">\n" +
+    "		</select>\n" +
+    "		<span> : </span>\n" +
+    "		<select class=\"cron-select\" ng-model=\"myFrequency.weekMinuteValue\" ng-options=\"item.value as item.value for item in minuteValue\">\n" +
+    "		</select>\n" +
+    "	</div>\n" +
+    "</div>");
 }]);
 
 angular.module('angular-cron-jobs', ['templates-angularcronjobs']);
@@ -395,17 +406,12 @@ angular.module('angular-cron-jobs').directive('cronSelection', ['cronService', f
                     console.log('output: ', $scope.output);
                 }
             }, true);
-
-
-
         }
     };
 }]);
-
 angular.module('angular-cron-jobs').factory('cronService', function() {
 
     var service = {};
-
     service.setCron = function(n) {
         var cron;
         switch (n.base) {
@@ -450,6 +456,7 @@ angular.module('angular-cron-jobs').factory('cronService', function() {
 
         return cron;
     };
+
     service.setFrequency = function(cron) {
         var cronPattern = cron.split(" ");
         console.log(cronPattern);

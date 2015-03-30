@@ -12,8 +12,8 @@ describe('AngularCronJobs', function() {
 
     function createView(scope) {
         scope.config = {
-            options : {
-                allowMinute : false
+            options: {
+                allowMinute: false
             }
         };
         var element = angular.element('<cron-selection config="config"></cron-selection>');
@@ -26,8 +26,7 @@ describe('AngularCronJobs', function() {
         var scope = $rootScope.$new();
         var view = createView(scope);
         scope.myFrequency = {};
-        scope.myFrequency.base = {};
-        scope.myFrequency.base.value = 1;
+        scope.myFrequency.base = 1;
         scope.cron = cronService.setCron(scope.myFrequency);
         $rootScope.$digest();
         expect(scope.cron).toEqual('* * * * *');
@@ -37,10 +36,8 @@ describe('AngularCronJobs', function() {
         var scope = $rootScope.$new();
         var view = createView(scope);
         scope.myFrequency = {};
-        scope.myFrequency.base = {};
-        scope.myFrequency.base.value = 2;
-        scope.myFrequency.pastTheHour = {};
-        scope.myFrequency.pastTheHour.value = 10;
+        scope.myFrequency.base = 2;
+        scope.myFrequency.pastTheHour = 10;
         scope.cron = cronService.setCron(scope.myFrequency);
         $rootScope.$digest();
         expect(scope.cron).toEqual('10 * * * *');
@@ -50,12 +47,9 @@ describe('AngularCronJobs', function() {
         var scope = $rootScope.$new();
         var view = createView(scope);
         scope.myFrequency = {};
-        scope.myFrequency.base = {};
-        scope.myFrequency.base.value = 3;
-        scope.myFrequency.hourValue = {};
-        scope.myFrequency.hourValue.value = 4;
-        scope.myFrequency.minuteValue = {};
-        scope.myFrequency.minuteValue.value = 30;
+        scope.myFrequency.base = 3;
+        scope.myFrequency.hourValue = 4;
+        scope.myFrequency.minuteValue = 30;
         scope.cron = cronService.setCron(scope.myFrequency);
         $rootScope.$digest();
         expect(scope.cron).toEqual('30 4 * * *');
@@ -65,14 +59,10 @@ describe('AngularCronJobs', function() {
         var scope = $rootScope.$new();
         var view = createView(scope);
         scope.myFrequency = {};
-        scope.myFrequency.base = {};
-        scope.myFrequency.base.value = 4;
-        scope.myFrequency.weekHourValue = {};
-        scope.myFrequency.weekHourValue.value = 12;
-        scope.myFrequency.weekMinuteValue = {};
-        scope.myFrequency.weekMinuteValue.value = 45;
-        scope.myFrequency.dayValue = {};
-        scope.myFrequency.dayValue.value = 2;
+        scope.myFrequency.base = 4;
+        scope.myFrequency.weekHourValue = 12;
+        scope.myFrequency.weekMinuteValue = 45;
+        scope.myFrequency.dayValue = 2;
         scope.cron = cronService.setCron(scope.myFrequency);
         $rootScope.$digest();
         expect(scope.cron).toEqual('45 12 * * 1');
@@ -82,14 +72,10 @@ describe('AngularCronJobs', function() {
         var scope = $rootScope.$new();
         var view = createView(scope);
         scope.myFrequency = {};
-        scope.myFrequency.base = {};
-        scope.myFrequency.base.value = 5;
-        scope.myFrequency.weekHourValue = {};
-        scope.myFrequency.weekHourValue.value = 18;
-        scope.myFrequency.weekMinuteValue = {};
-        scope.myFrequency.weekMinuteValue.value = 55;
-        scope.myFrequency.dayOfMonthValue = {};
-        scope.myFrequency.dayOfMonthValue.value = 3;
+        scope.myFrequency.base = 5;
+        scope.myFrequency.weekHourValue = 18;
+        scope.myFrequency.weekMinuteValue = 55;
+        scope.myFrequency.dayOfMonthValue = 3;
         scope.cron = cronService.setCron(scope.myFrequency);
         $rootScope.$digest();
         expect(scope.cron).toEqual('55 18 3 * *');
@@ -99,16 +85,11 @@ describe('AngularCronJobs', function() {
         var scope = $rootScope.$new();
         var view = createView(scope);
         scope.myFrequency = {};
-        scope.myFrequency.base = {};
-        scope.myFrequency.base.value = 6;
-        scope.myFrequency.weekHourValue = {};
-        scope.myFrequency.weekHourValue.value = 4;
-        scope.myFrequency.weekMinuteValue = {};
-        scope.myFrequency.weekMinuteValue.value = 10;
-        scope.myFrequency.dayOfMonthValue = {};
-        scope.myFrequency.dayOfMonthValue.value = 5;
-        scope.myFrequency.monthValue = {};
-        scope.myFrequency.monthValue.value = 5;
+        scope.myFrequency.base = 6;
+        scope.myFrequency.weekHourValue = 4;
+        scope.myFrequency.weekMinuteValue = 10;
+        scope.myFrequency.dayOfMonthValue = 5;
+        scope.myFrequency.monthValue = 5;
         scope.cron = cronService.setCron(scope.myFrequency);
         $rootScope.$digest();
         expect(scope.cron).toEqual('10 4 5 5 *');

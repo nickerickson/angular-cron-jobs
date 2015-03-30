@@ -39,17 +39,11 @@ angular.module('angular-cron-jobs').directive('cronSelection', ['cronService', f
             if (typeof $scope.config === 'object' && !$scope.config.length) {
                 var optionsKeyArray = Object.keys($scope.config.options);
                 for (var i in optionsKeyArray) {
-                    console.log('optionsKeyArray[i]: ', optionsKeyArray[i]);
                     var currentKeyArray = optionsKeyArray[i].split('allow');
                     var currentKey = currentKeyArray[1];
                     var originalKey = optionsKeyArray[i];
-                    console.log('currentKey: ', currentKey);
                     if (!$scope.config.options[originalKey]) {
-                        console.log('found false config option: ', $scope.config.options[originalKey]);
                         for (var b in $scope.frequency) {
-                            console.log('entered frequency loop');
-                            console.log('$scope.frequency[i]', $scope.frequency[b].text);
-                            console.log('currentKey: ', currentKey);
                             if ($scope.frequency[b].text === currentKey) {
                                 $scope.frequency.splice(b, 1);
                             }
@@ -321,7 +315,6 @@ angular.module('angular-cron-jobs').directive('cronSelection', ['cronService', f
                 $scope.myFrequency = cronService.setFrequency($scope.output);
             }
             $scope.baseChange = function() {
-                console.log("base change")
                 var base = $scope.myFrequency.base;
                 $scope.myFrequency = {
                     base: base
@@ -330,7 +323,6 @@ angular.module('angular-cron-jobs').directive('cronSelection', ['cronService', f
             $scope.$watch('myFrequency', function(n) {
                 if (n) {
                     $scope.output = cronService.setCron(n);
-                    console.log('output: ', $scope.output);
                 }
             }, true);
         }

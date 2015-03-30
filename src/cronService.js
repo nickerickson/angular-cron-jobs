@@ -48,7 +48,6 @@ angular.module('angular-cron-jobs').factory('cronService', function() {
 
     service.setFrequency = function(cron) {
         var cronPattern = cron.split(" ");
-        console.log(cronPattern);
         var frequency = {};
 
         if (cronPattern[0] === "*") {
@@ -77,7 +76,6 @@ angular.module('angular-cron-jobs').factory('cronService', function() {
             frequency.dayOfMonthValue = parseInt(cronPattern[2]);
             frequency.monthValue = parseInt(cronPattern[3]);
         }
-        console.log(frequency)
         return frequency;
     };
     return service;
