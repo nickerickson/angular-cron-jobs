@@ -1,6 +1,6 @@
 /**
  * UI Component For Creating Cron Job Syntax To Send To Server
- * @version v1.0.1 - 2015-04-07 * @link https://github.com/jacobscarter/angular-cron-jobs
+ * @version v1.0.1 - 2015-05-22 * @link https://github.com/jacobscarter/angular-cron-jobs
  * @author Jacob Carter <jacob@ieksolutions.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -427,7 +427,7 @@ angular.module('angular-cron-jobs').factory('cronService', function() {
                 n.weekMinuteValue = n.weekMinuteValue || 0;
                 n.weekHourValue = n.weekHourValue || 0;
                 n.dayValue = n.dayValue || 1;
-                cron = n.weekMinuteValue + ' ' + n.weekHourValue + ' * * ' + (n.dayValue - 1);
+                cron = n.weekMinuteValue + ' ' + n.weekHourValue + ' * * ' + (n.dayValue);
                 break;
             case 5:
                 //monthly

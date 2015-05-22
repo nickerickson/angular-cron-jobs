@@ -24,7 +24,7 @@ angular.module('angular-cron-jobs').factory('cronService', function() {
                 n.weekMinuteValue = n.weekMinuteValue || 0;
                 n.weekHourValue = n.weekHourValue || 0;
                 n.dayValue = n.dayValue || 1;
-                cron = n.weekMinuteValue + ' ' + n.weekHourValue + ' * * ' + (n.dayValue - 1);
+                cron = n.weekMinuteValue + ' ' + n.weekHourValue + ' * * ' + (n.dayValue);
                 break;
             case 5:
                 //monthly

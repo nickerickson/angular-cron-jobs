@@ -65,7 +65,7 @@ describe('AngularCronJobs', function() {
         scope.myFrequency.dayValue = 2;
         scope.cron = cronService.setCron(scope.myFrequency);
         $rootScope.$digest();
-        expect(scope.cron).toEqual('45 12 * * 1');
+        expect(scope.cron).toEqual('45 12 * * 2');
     });
 
     it("cron should be set for every month on the 3rd at 6:55 PM", function() {
